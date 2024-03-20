@@ -5,27 +5,18 @@ const result = await inquirer.prompt([
     { message: 'Enter Second Value    :', type: 'number', name: 'sv' },
     { message: 'Select Operation', type: 'list', name: 'opt', choices: ['Addition', 'Subtraction', 'Multiplication', 'Division'] }
 ]);
-function perform_operation(ifv, isv, iopt) {
-    let calculationResult = 0;
-    if (iopt == "Addition") {
-        calculationResult = ifv + isv;
-        console.log(`${ifv} + ${isv} = ${calculationResult}`);
-    }
-    else if (iopt == "Subtraction") {
-        calculationResult = ifv - isv;
-        console.log(`${ifv} - ${isv} = ${calculationResult}`);
-    }
-    else if (iopt == "Multiplication") {
-        calculationResult = ifv * isv;
-        console.log(`${ifv} x ${isv} = ${calculationResult}`);
-    }
-    else if (iopt == "Division") {
-        calculationResult = ifv / isv;
-        console.log(`${ifv} / ${isv} = ${calculationResult}`);
-    }
-    else {
-        console.log("Please select valid operation.");
-    }
-    return calculationResult;
+if (result.opt == "Addition") {
+    console.log(`${result.fv} + ${result.sv} = ${result.fv + result.sv}`);
 }
-perform_operation(result.fv, result.sv, result.opt);
+else if (result.opt == "Subtraction") {
+    console.log(`${result.fv} - ${result.sv} = ${result.fv - result.sv}`);
+}
+else if (result.opt == "Multiplication") {
+    console.log(`${result.fv} x ${result.sv} = ${result.fv * result.sv}`);
+}
+else if (result.opt == "Division") {
+    console.log(`${result.fv} / ${result.sv} = ${result.fv / result.sv}`);
+}
+else {
+    console.log("Please select valid operation.");
+}
